@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            panel1 = new Panel();
+            VstupniParametry = new Panel();
+            nudSavingsYears = new NumericUpDown();
             label5 = new Label();
             txtSavingsRate = new TextBox();
             label4 = new Label();
@@ -38,10 +39,17 @@
             txtInitialDeposit = new TextBox();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            numericUpDown1 = new NumericUpDown();
-            panel1.SuspendLayout();
+            label6 = new Label();
+            btnCalculateSavings = new Button();
+            button1 = new Button();
+            Vysledky = new Panel();
+            label11 = new Label();
+            pictureBox2 = new PictureBox();
+            VstupniParametry.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudSavingsYears).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            Vysledky.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -55,22 +63,37 @@
             label1.TabIndex = 0;
             label1.Text = "Finanční Kalkulačka";
             // 
-            // panel1
+            // VstupniParametry
             // 
-            panel1.BackColor = Color.FromArgb(22, 22, 31);
-            panel1.Controls.Add(numericUpDown1);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(txtSavingsRate);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(txtMonthlyDeposit);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(txtInitialDeposit);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(211, 151);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(345, 451);
-            panel1.TabIndex = 1;
+            VstupniParametry.BackColor = Color.FromArgb(22, 22, 31);
+            VstupniParametry.Controls.Add(button1);
+            VstupniParametry.Controls.Add(btnCalculateSavings);
+            VstupniParametry.Controls.Add(label6);
+            VstupniParametry.Controls.Add(nudSavingsYears);
+            VstupniParametry.Controls.Add(label5);
+            VstupniParametry.Controls.Add(txtSavingsRate);
+            VstupniParametry.Controls.Add(label4);
+            VstupniParametry.Controls.Add(txtMonthlyDeposit);
+            VstupniParametry.Controls.Add(label3);
+            VstupniParametry.Controls.Add(txtInitialDeposit);
+            VstupniParametry.Controls.Add(label2);
+            VstupniParametry.Controls.Add(pictureBox1);
+            VstupniParametry.Location = new Point(211, 151);
+            VstupniParametry.Name = "VstupniParametry";
+            VstupniParametry.Size = new Size(345, 534);
+            VstupniParametry.TabIndex = 1;
+            // 
+            // nudSavingsYears
+            // 
+            nudSavingsYears.BackColor = Color.FromArgb(17, 17, 24);
+            nudSavingsYears.BorderStyle = BorderStyle.FixedSingle;
+            nudSavingsYears.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            nudSavingsYears.ForeColor = Color.White;
+            nudSavingsYears.Location = new Point(23, 400);
+            nudSavingsYears.Margin = new Padding(0);
+            nudSavingsYears.Name = "nudSavingsYears";
+            nudSavingsYears.Size = new Size(300, 29);
+            nudSavingsYears.TabIndex = 8;
             // 
             // label5
             // 
@@ -156,29 +179,93 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // numericUpDown1
+            // label6
             // 
-            numericUpDown1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            numericUpDown1.Location = new Point(22, 382);
-            numericUpDown1.Margin = new Padding(0);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(300, 29);
-            numericUpDown1.TabIndex = 8;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(22, 375);
+            label6.Name = "label6";
+            label6.Size = new Size(92, 15);
+            label6.TabIndex = 9;
+            label6.Text = "DOBA SPOŘENÍ";
+            // 
+            // btnCalculateSavings
+            // 
+            btnCalculateSavings.BackColor = Color.FromArgb(200, 240, 96);
+            btnCalculateSavings.FlatStyle = FlatStyle.Flat;
+            btnCalculateSavings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnCalculateSavings.ForeColor = SystemColors.ControlText;
+            btnCalculateSavings.Location = new Point(23, 461);
+            btnCalculateSavings.Name = "btnCalculateSavings";
+            btnCalculateSavings.Size = new Size(145, 51);
+            btnCalculateSavings.TabIndex = 10;
+            btnCalculateSavings.Text = "VYPOČÍTAT";
+            btnCalculateSavings.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(22, 22, 31);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(178, 461);
+            button1.Name = "button1";
+            button1.Size = new Size(145, 51);
+            button1.TabIndex = 11;
+            button1.Text = "VYMAZAT";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // Vysledky
+            // 
+            Vysledky.BackColor = Color.FromArgb(22, 22, 31);
+            Vysledky.Controls.Add(label11);
+            Vysledky.Controls.Add(pictureBox2);
+            Vysledky.Location = new Point(574, 151);
+            Vysledky.Name = "Vysledky";
+            Vysledky.Size = new Size(345, 534);
+            Vysledky.TabIndex = 12;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(41, 24);
+            label11.Name = "label11";
+            label11.Size = new Size(64, 15);
+            label11.TabIndex = 1;
+            label11.Text = "VÝSLEDKY";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(200, 240, 96);
+            pictureBox2.Location = new Point(23, 24);
+            pictureBox2.MaximumSize = new Size(50, 50);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(12, 12);
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(10, 10, 15);
-            ClientSize = new Size(1287, 705);
-            Controls.Add(panel1);
+            ClientSize = new Size(1287, 999);
+            Controls.Add(Vysledky);
+            Controls.Add(VstupniParametry);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "Form1";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            VstupniParametry.ResumeLayout(false);
+            VstupniParametry.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudSavingsYears).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            Vysledky.ResumeLayout(false);
+            Vysledky.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -186,7 +273,7 @@
         #endregion
 
         private Label label1;
-        private Panel panel1;
+        private Panel VstupniParametry;
         private Label label2;
         private PictureBox pictureBox1;
         private Label label3;
@@ -195,6 +282,12 @@
         private TextBox txtSavingsRate;
         private Label label4;
         private TextBox txtMonthlyDeposit;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown nudSavingsYears;
+        private Button btnCalculateSavings;
+        private Label label6;
+        private Button button1;
+        private Panel Vysledky;
+        private Label label11;
+        private PictureBox pictureBox2;
     }
 }
