@@ -30,7 +30,7 @@
         {
             label1 = new Label();
             VstupniParametry = new Panel();
-            button1 = new Button();
+            btnVymazat = new Button();
             btnCalculateSavings = new Button();
             label6 = new Label();
             nudSavingsYears = new NumericUpDown();
@@ -43,25 +43,25 @@
             label2 = new Label();
             pictureBox1 = new PictureBox();
             Vysledky = new Panel();
-            label11 = new Label();
-            pictureBox2 = new PictureBox();
-            panelKonecnaCastka = new Panel();
-            label7 = new Label();
-            lblCelkovaKonecnaCastka = new Label();
-            panelCelkemVlozeno = new Panel();
-            lblCelkemVlozeno = new Label();
-            label9 = new Label();
             panelZiskZUroku = new Panel();
             lblZiskZUroku = new Label();
             label10 = new Label();
+            panelCelkemVlozeno = new Panel();
+            lblCelkemVlozeno = new Label();
+            label9 = new Label();
+            panelKonecnaCastka = new Panel();
+            lblCelkovaKonecnaCastka = new Label();
+            label7 = new Label();
+            label11 = new Label();
+            pictureBox2 = new PictureBox();
             VstupniParametry.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudSavingsYears).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             Vysledky.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panelKonecnaCastka.SuspendLayout();
-            panelCelkemVlozeno.SuspendLayout();
             panelZiskZUroku.SuspendLayout();
+            panelCelkemVlozeno.SuspendLayout();
+            panelKonecnaCastka.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -78,7 +78,7 @@
             // VstupniParametry
             // 
             VstupniParametry.BackColor = Color.FromArgb(22, 22, 31);
-            VstupniParametry.Controls.Add(button1);
+            VstupniParametry.Controls.Add(btnVymazat);
             VstupniParametry.Controls.Add(btnCalculateSavings);
             VstupniParametry.Controls.Add(label6);
             VstupniParametry.Controls.Add(nudSavingsYears);
@@ -95,18 +95,18 @@
             VstupniParametry.Size = new Size(345, 534);
             VstupniParametry.TabIndex = 1;
             // 
-            // button1
+            // btnVymazat
             // 
-            button1.BackColor = Color.FromArgb(22, 22, 31);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(178, 461);
-            button1.Name = "button1";
-            button1.Size = new Size(145, 51);
-            button1.TabIndex = 11;
-            button1.Text = "VYMAZAT";
-            button1.UseVisualStyleBackColor = false;
+            btnVymazat.BackColor = Color.FromArgb(22, 22, 31);
+            btnVymazat.FlatStyle = FlatStyle.Flat;
+            btnVymazat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnVymazat.ForeColor = Color.White;
+            btnVymazat.Location = new Point(178, 461);
+            btnVymazat.Name = "btnVymazat";
+            btnVymazat.Size = new Size(145, 51);
+            btnVymazat.TabIndex = 11;
+            btnVymazat.Text = "VYMAZAT";
+            btnVymazat.UseVisualStyleBackColor = false;
             // 
             // btnCalculateSavings
             // 
@@ -136,12 +136,12 @@
             // 
             nudSavingsYears.BackColor = Color.FromArgb(17, 17, 24);
             nudSavingsYears.BorderStyle = BorderStyle.FixedSingle;
-            nudSavingsYears.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            nudSavingsYears.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             nudSavingsYears.ForeColor = Color.White;
             nudSavingsYears.Location = new Point(23, 400);
             nudSavingsYears.Margin = new Padding(0);
             nudSavingsYears.Name = "nudSavingsYears";
-            nudSavingsYears.Size = new Size(300, 29);
+            nudSavingsYears.Size = new Size(300, 27);
             nudSavingsYears.TabIndex = 8;
             // 
             // label5
@@ -159,6 +159,8 @@
             // 
             txtSavingsRate.BackColor = Color.FromArgb(17, 17, 24);
             txtSavingsRate.BorderStyle = BorderStyle.FixedSingle;
+            txtSavingsRate.Font = new Font("Segoe UI", 11.25F);
+            txtSavingsRate.ForeColor = Color.White;
             txtSavingsRate.Location = new Point(23, 301);
             txtSavingsRate.Multiline = true;
             txtSavingsRate.Name = "txtSavingsRate";
@@ -180,6 +182,8 @@
             // 
             txtMonthlyDeposit.BackColor = Color.FromArgb(17, 17, 24);
             txtMonthlyDeposit.BorderStyle = BorderStyle.FixedSingle;
+            txtMonthlyDeposit.Font = new Font("Segoe UI", 11.25F);
+            txtMonthlyDeposit.ForeColor = Color.White;
             txtMonthlyDeposit.Location = new Point(22, 200);
             txtMonthlyDeposit.Multiline = true;
             txtMonthlyDeposit.Name = "txtMonthlyDeposit";
@@ -201,6 +205,8 @@
             // 
             txtInitialDeposit.BackColor = Color.FromArgb(17, 17, 24);
             txtInitialDeposit.BorderStyle = BorderStyle.FixedSingle;
+            txtInitialDeposit.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            txtInitialDeposit.ForeColor = Color.White;
             txtInitialDeposit.Location = new Point(23, 101);
             txtInitialDeposit.Multiline = true;
             txtInitialDeposit.Name = "txtInitialDeposit";
@@ -241,61 +247,39 @@
             Vysledky.Size = new Size(450, 534);
             Vysledky.TabIndex = 12;
             // 
-            // label11
+            // panelZiskZUroku
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(41, 24);
-            label11.Name = "label11";
-            label11.Size = new Size(64, 15);
-            label11.TabIndex = 1;
-            label11.Text = "VÝSLEDKY";
+            panelZiskZUroku.BackColor = Color.FromArgb(17, 17, 24);
+            panelZiskZUroku.BorderStyle = BorderStyle.FixedSingle;
+            panelZiskZUroku.Controls.Add(lblZiskZUroku);
+            panelZiskZUroku.Controls.Add(label10);
+            panelZiskZUroku.Location = new Point(231, 187);
+            panelZiskZUroku.Name = "panelZiskZUroku";
+            panelZiskZUroku.Size = new Size(194, 100);
+            panelZiskZUroku.TabIndex = 15;
             // 
-            // pictureBox2
+            // lblZiskZUroku
             // 
-            pictureBox2.BackColor = Color.FromArgb(200, 240, 96);
-            pictureBox2.Location = new Point(23, 24);
-            pictureBox2.MaximumSize = new Size(50, 50);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(12, 12);
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
+            lblZiskZUroku.AutoSize = true;
+            lblZiskZUroku.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblZiskZUroku.ForeColor = Color.White;
+            lblZiskZUroku.Location = new Point(17, 54);
+            lblZiskZUroku.Name = "lblZiskZUroku";
+            lblZiskZUroku.RightToLeft = RightToLeft.No;
+            lblZiskZUroku.Size = new Size(31, 25);
+            lblZiskZUroku.TabIndex = 13;
+            lblZiskZUroku.Text = "—";
             // 
-            // panelKonecnaCastka
+            // label10
             // 
-            panelKonecnaCastka.BackColor = Color.FromArgb(17, 17, 24);
-            panelKonecnaCastka.BorderStyle = BorderStyle.FixedSingle;
-            panelKonecnaCastka.Controls.Add(lblCelkovaKonecnaCastka);
-            panelKonecnaCastka.Controls.Add(label7);
-            panelKonecnaCastka.Location = new Point(23, 74);
-            panelKonecnaCastka.Name = "panelKonecnaCastka";
-            panelKonecnaCastka.Size = new Size(402, 100);
-            panelKonecnaCastka.TabIndex = 2;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(17, 15);
-            label7.Name = "label7";
-            label7.Size = new Size(162, 15);
-            label7.TabIndex = 12;
-            label7.Text = "CELKOVÁ KONEČNÁ ČÁSTKA";
-            // 
-            // lblCelkovaKonecnaCastka
-            // 
-            lblCelkovaKonecnaCastka.AutoSize = true;
-            lblCelkovaKonecnaCastka.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblCelkovaKonecnaCastka.ForeColor = Color.FromArgb(200, 240, 96);
-            lblCelkovaKonecnaCastka.Location = new Point(17, 54);
-            lblCelkovaKonecnaCastka.Name = "lblCelkovaKonecnaCastka";
-            lblCelkovaKonecnaCastka.RightToLeft = RightToLeft.No;
-            lblCelkovaKonecnaCastka.Size = new Size(34, 30);
-            lblCelkovaKonecnaCastka.TabIndex = 13;
-            lblCelkovaKonecnaCastka.Text = "—";
-            lblCelkovaKonecnaCastka.Click += label8_Click;
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(17, 15);
+            label10.Name = "label10";
+            label10.Size = new Size(84, 15);
+            label10.TabIndex = 12;
+            label10.Text = "ZISK Z ÚROKŮ";
             // 
             // panelCelkemVlozeno
             // 
@@ -332,39 +316,61 @@
             label9.TabIndex = 12;
             label9.Text = "CELKEM VLOŽENO";
             // 
-            // panelZiskZUroku
+            // panelKonecnaCastka
             // 
-            panelZiskZUroku.BackColor = Color.FromArgb(17, 17, 24);
-            panelZiskZUroku.BorderStyle = BorderStyle.FixedSingle;
-            panelZiskZUroku.Controls.Add(lblZiskZUroku);
-            panelZiskZUroku.Controls.Add(label10);
-            panelZiskZUroku.Location = new Point(231, 187);
-            panelZiskZUroku.Name = "panelZiskZUroku";
-            panelZiskZUroku.Size = new Size(194, 100);
-            panelZiskZUroku.TabIndex = 15;
+            panelKonecnaCastka.BackColor = Color.FromArgb(17, 17, 24);
+            panelKonecnaCastka.BorderStyle = BorderStyle.FixedSingle;
+            panelKonecnaCastka.Controls.Add(lblCelkovaKonecnaCastka);
+            panelKonecnaCastka.Controls.Add(label7);
+            panelKonecnaCastka.Location = new Point(23, 74);
+            panelKonecnaCastka.Name = "panelKonecnaCastka";
+            panelKonecnaCastka.Size = new Size(402, 100);
+            panelKonecnaCastka.TabIndex = 2;
             // 
-            // lblZiskZUroku
+            // lblCelkovaKonecnaCastka
             // 
-            lblZiskZUroku.AutoSize = true;
-            lblZiskZUroku.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblZiskZUroku.ForeColor = Color.White;
-            lblZiskZUroku.Location = new Point(17, 54);
-            lblZiskZUroku.Name = "lblZiskZUroku";
-            lblZiskZUroku.RightToLeft = RightToLeft.No;
-            lblZiskZUroku.Size = new Size(31, 25);
-            lblZiskZUroku.TabIndex = 13;
-            lblZiskZUroku.Text = "—";
+            lblCelkovaKonecnaCastka.AutoSize = true;
+            lblCelkovaKonecnaCastka.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblCelkovaKonecnaCastka.ForeColor = Color.FromArgb(200, 240, 96);
+            lblCelkovaKonecnaCastka.Location = new Point(17, 54);
+            lblCelkovaKonecnaCastka.Name = "lblCelkovaKonecnaCastka";
+            lblCelkovaKonecnaCastka.RightToLeft = RightToLeft.No;
+            lblCelkovaKonecnaCastka.Size = new Size(34, 30);
+            lblCelkovaKonecnaCastka.TabIndex = 13;
+            lblCelkovaKonecnaCastka.Text = "—";
+            lblCelkovaKonecnaCastka.Click += label8_Click;
             // 
-            // label10
+            // label7
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(17, 15);
-            label10.Name = "label10";
-            label10.Size = new Size(84, 15);
-            label10.TabIndex = 12;
-            label10.Text = "ZISK Z ÚROKŮ";
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(17, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(162, 15);
+            label7.TabIndex = 12;
+            label7.Text = "CELKOVÁ KONEČNÁ ČÁSTKA";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(41, 24);
+            label11.Name = "label11";
+            label11.Size = new Size(64, 15);
+            label11.TabIndex = 1;
+            label11.Text = "VÝSLEDKY";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(200, 240, 96);
+            pictureBox2.Location = new Point(23, 24);
+            pictureBox2.MaximumSize = new Size(50, 50);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(12, 12);
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -384,13 +390,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             Vysledky.ResumeLayout(false);
             Vysledky.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panelKonecnaCastka.ResumeLayout(false);
-            panelKonecnaCastka.PerformLayout();
-            panelCelkemVlozeno.ResumeLayout(false);
-            panelCelkemVlozeno.PerformLayout();
             panelZiskZUroku.ResumeLayout(false);
             panelZiskZUroku.PerformLayout();
+            panelCelkemVlozeno.ResumeLayout(false);
+            panelCelkemVlozeno.PerformLayout();
+            panelKonecnaCastka.ResumeLayout(false);
+            panelKonecnaCastka.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -410,7 +416,7 @@
         private NumericUpDown nudSavingsYears;
         private Button btnCalculateSavings;
         private Label label6;
-        private Button button1;
+        private Button btnVymazat;
         private Panel Vysledky;
         private Label label11;
         private PictureBox pictureBox2;
