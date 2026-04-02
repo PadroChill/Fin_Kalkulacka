@@ -24,8 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Modely\" />
-    <Folder Include="Logika\" />
     <Folder Include="Pomocnik\" />
   </ItemGroup>
 
