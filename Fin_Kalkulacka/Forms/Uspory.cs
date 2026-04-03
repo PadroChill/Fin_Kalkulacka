@@ -1,8 +1,8 @@
 namespace Fin_Kalkulacka
 {
-    public partial class Form1 : Form
+    public partial class Uspory : Form
     {
-        public Form1()
+        public Uspory()
         {
             InitializeComponent();
         }
