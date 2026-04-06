@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             VstupniParametry = new Panel();
-            btnVymazat = new Button();
+            btnVymazatUspory = new Button();
             btnCalculateSavings = new Button();
             label6 = new Label();
-            nudSavingsYears = new NumericUpDown();
+            nudDobaSporeni = new NumericUpDown();
             label5 = new Label();
-            txtSavingsRate = new TextBox();
+            txtRocniSazba = new TextBox();
             label4 = new Label();
-            txtMonthlyDeposit = new TextBox();
+            txtMesicniVklad = new TextBox();
             label3 = new Label();
-            txtInitialDeposit = new TextBox();
+            txtPocatecniVklad = new TextBox();
             label2 = new Label();
             pictureBox1 = new PictureBox();
             Vysledky = new Panel();
@@ -54,7 +55,7 @@
             lblCelkemVlozeno = new Label();
             label9 = new Label();
             panelKonecnaCastka = new Panel();
-            lblCelkovaKonecnaCastka = new Label();
+            lblKonecnaCastka = new Label();
             label7 = new Label();
             label11 = new Label();
             pictureBox2 = new PictureBox();
@@ -63,8 +64,10 @@
             Vlozeno = new DataGridViewTextBoxColumn();
             Úroky = new DataGridViewTextBoxColumn();
             Celkem = new DataGridViewTextBoxColumn();
+            btnNaUver = new Button();
+            btnNaUspory = new Button();
             VstupniParametry.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudSavingsYears).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudDobaSporeni).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             Vysledky.SuspendLayout();
             panelZiskZUroku.SuspendLayout();
@@ -88,35 +91,36 @@
             // VstupniParametry
             // 
             VstupniParametry.BackColor = Color.FromArgb(22, 22, 31);
-            VstupniParametry.Controls.Add(btnVymazat);
+            VstupniParametry.Controls.Add(btnVymazatUspory);
             VstupniParametry.Controls.Add(btnCalculateSavings);
             VstupniParametry.Controls.Add(label6);
-            VstupniParametry.Controls.Add(nudSavingsYears);
+            VstupniParametry.Controls.Add(nudDobaSporeni);
             VstupniParametry.Controls.Add(label5);
-            VstupniParametry.Controls.Add(txtSavingsRate);
+            VstupniParametry.Controls.Add(txtRocniSazba);
             VstupniParametry.Controls.Add(label4);
-            VstupniParametry.Controls.Add(txtMonthlyDeposit);
+            VstupniParametry.Controls.Add(txtMesicniVklad);
             VstupniParametry.Controls.Add(label3);
-            VstupniParametry.Controls.Add(txtInitialDeposit);
+            VstupniParametry.Controls.Add(txtPocatecniVklad);
             VstupniParametry.Controls.Add(label2);
             VstupniParametry.Controls.Add(pictureBox1);
-            VstupniParametry.Location = new Point(211, 171);
+            VstupniParametry.Location = new Point(211, 245);
             VstupniParametry.Name = "VstupniParametry";
             VstupniParametry.Size = new Size(345, 605);
             VstupniParametry.TabIndex = 1;
             // 
-            // btnVymazat
+            // btnVymazatUspory
             // 
-            btnVymazat.BackColor = Color.FromArgb(22, 22, 31);
-            btnVymazat.FlatStyle = FlatStyle.Flat;
-            btnVymazat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            btnVymazat.ForeColor = Color.White;
-            btnVymazat.Location = new Point(178, 522);
-            btnVymazat.Name = "btnVymazat";
-            btnVymazat.Size = new Size(145, 58);
-            btnVymazat.TabIndex = 11;
-            btnVymazat.Text = "VYMAZAT";
-            btnVymazat.UseVisualStyleBackColor = false;
+            btnVymazatUspory.BackColor = Color.FromArgb(22, 22, 31);
+            btnVymazatUspory.FlatStyle = FlatStyle.Flat;
+            btnVymazatUspory.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnVymazatUspory.ForeColor = Color.White;
+            btnVymazatUspory.Location = new Point(178, 522);
+            btnVymazatUspory.Name = "btnVymazatUspory";
+            btnVymazatUspory.Size = new Size(145, 58);
+            btnVymazatUspory.TabIndex = 11;
+            btnVymazatUspory.Text = "VYMAZAT";
+            btnVymazatUspory.UseVisualStyleBackColor = false;
+            btnVymazatUspory.Click += btnVymazatUspory_Click;
             // 
             // btnCalculateSavings
             // 
@@ -130,6 +134,7 @@
             btnCalculateSavings.TabIndex = 10;
             btnCalculateSavings.Text = "VYPOČÍTAT";
             btnCalculateSavings.UseVisualStyleBackColor = false;
+            btnCalculateSavings.Click += btnCalculateSavings_Click;
             // 
             // label6
             // 
@@ -142,17 +147,17 @@
             label6.TabIndex = 9;
             label6.Text = "DOBA SPOŘENÍ";
             // 
-            // nudSavingsYears
+            // nudDobaSporeni
             // 
-            nudSavingsYears.BackColor = Color.FromArgb(17, 17, 24);
-            nudSavingsYears.BorderStyle = BorderStyle.FixedSingle;
-            nudSavingsYears.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            nudSavingsYears.ForeColor = Color.White;
-            nudSavingsYears.Location = new Point(23, 453);
-            nudSavingsYears.Margin = new Padding(0);
-            nudSavingsYears.Name = "nudSavingsYears";
-            nudSavingsYears.Size = new Size(300, 30);
-            nudSavingsYears.TabIndex = 8;
+            nudDobaSporeni.BackColor = Color.FromArgb(17, 17, 24);
+            nudDobaSporeni.BorderStyle = BorderStyle.FixedSingle;
+            nudDobaSporeni.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            nudDobaSporeni.ForeColor = Color.White;
+            nudDobaSporeni.Location = new Point(23, 453);
+            nudDobaSporeni.Margin = new Padding(0);
+            nudDobaSporeni.Name = "nudDobaSporeni";
+            nudDobaSporeni.Size = new Size(300, 30);
+            nudDobaSporeni.TabIndex = 8;
             // 
             // label5
             // 
@@ -165,17 +170,17 @@
             label5.TabIndex = 7;
             label5.Text = "ROČNÍ ÚROKOVÁ SAZBA (KČ)";
             // 
-            // txtSavingsRate
+            // txtRocniSazba
             // 
-            txtSavingsRate.BackColor = Color.FromArgb(17, 17, 24);
-            txtSavingsRate.BorderStyle = BorderStyle.FixedSingle;
-            txtSavingsRate.Font = new Font("Segoe UI", 11.25F);
-            txtSavingsRate.ForeColor = Color.White;
-            txtSavingsRate.Location = new Point(23, 341);
-            txtSavingsRate.Multiline = true;
-            txtSavingsRate.Name = "txtSavingsRate";
-            txtSavingsRate.Size = new Size(300, 58);
-            txtSavingsRate.TabIndex = 6;
+            txtRocniSazba.BackColor = Color.FromArgb(17, 17, 24);
+            txtRocniSazba.BorderStyle = BorderStyle.FixedSingle;
+            txtRocniSazba.Font = new Font("Segoe UI", 11.25F);
+            txtRocniSazba.ForeColor = Color.White;
+            txtRocniSazba.Location = new Point(23, 341);
+            txtRocniSazba.Multiline = true;
+            txtRocniSazba.Name = "txtRocniSazba";
+            txtRocniSazba.Size = new Size(300, 58);
+            txtRocniSazba.TabIndex = 6;
             // 
             // label4
             // 
@@ -188,17 +193,17 @@
             label4.TabIndex = 5;
             label4.Text = "MĚSÍČNÍ VKLAD (KČ)";
             // 
-            // txtMonthlyDeposit
+            // txtMesicniVklad
             // 
-            txtMonthlyDeposit.BackColor = Color.FromArgb(17, 17, 24);
-            txtMonthlyDeposit.BorderStyle = BorderStyle.FixedSingle;
-            txtMonthlyDeposit.Font = new Font("Segoe UI", 11.25F);
-            txtMonthlyDeposit.ForeColor = Color.White;
-            txtMonthlyDeposit.Location = new Point(22, 227);
-            txtMonthlyDeposit.Multiline = true;
-            txtMonthlyDeposit.Name = "txtMonthlyDeposit";
-            txtMonthlyDeposit.Size = new Size(300, 58);
-            txtMonthlyDeposit.TabIndex = 4;
+            txtMesicniVklad.BackColor = Color.FromArgb(17, 17, 24);
+            txtMesicniVklad.BorderStyle = BorderStyle.FixedSingle;
+            txtMesicniVklad.Font = new Font("Segoe UI", 11.25F);
+            txtMesicniVklad.ForeColor = Color.White;
+            txtMesicniVklad.Location = new Point(22, 227);
+            txtMesicniVklad.Multiline = true;
+            txtMesicniVklad.Name = "txtMesicniVklad";
+            txtMesicniVklad.Size = new Size(300, 58);
+            txtMesicniVklad.TabIndex = 4;
             // 
             // label3
             // 
@@ -211,17 +216,17 @@
             label3.TabIndex = 3;
             label3.Text = "VSTUPNÍ PARAMETRY (KČ)";
             // 
-            // txtInitialDeposit
+            // txtPocatecniVklad
             // 
-            txtInitialDeposit.BackColor = Color.FromArgb(17, 17, 24);
-            txtInitialDeposit.BorderStyle = BorderStyle.FixedSingle;
-            txtInitialDeposit.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            txtInitialDeposit.ForeColor = Color.White;
-            txtInitialDeposit.Location = new Point(23, 114);
-            txtInitialDeposit.Multiline = true;
-            txtInitialDeposit.Name = "txtInitialDeposit";
-            txtInitialDeposit.Size = new Size(300, 58);
-            txtInitialDeposit.TabIndex = 2;
+            txtPocatecniVklad.BackColor = Color.FromArgb(17, 17, 24);
+            txtPocatecniVklad.BorderStyle = BorderStyle.FixedSingle;
+            txtPocatecniVklad.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            txtPocatecniVklad.ForeColor = Color.White;
+            txtPocatecniVklad.Location = new Point(23, 114);
+            txtPocatecniVklad.Multiline = true;
+            txtPocatecniVklad.Name = "txtPocatecniVklad";
+            txtPocatecniVklad.Size = new Size(300, 58);
+            txtPocatecniVklad.TabIndex = 2;
             // 
             // label2
             // 
@@ -252,7 +257,7 @@
             Vysledky.Controls.Add(panelKonecnaCastka);
             Vysledky.Controls.Add(label11);
             Vysledky.Controls.Add(pictureBox2);
-            Vysledky.Location = new Point(574, 171);
+            Vysledky.Location = new Point(574, 245);
             Vysledky.Name = "Vysledky";
             Vysledky.Size = new Size(450, 605);
             Vysledky.TabIndex = 12;
@@ -330,25 +335,25 @@
             // 
             panelKonecnaCastka.BackColor = Color.FromArgb(17, 17, 24);
             panelKonecnaCastka.BorderStyle = BorderStyle.FixedSingle;
-            panelKonecnaCastka.Controls.Add(lblCelkovaKonecnaCastka);
+            panelKonecnaCastka.Controls.Add(lblKonecnaCastka);
             panelKonecnaCastka.Controls.Add(label7);
             panelKonecnaCastka.Location = new Point(23, 84);
             panelKonecnaCastka.Name = "panelKonecnaCastka";
             panelKonecnaCastka.Size = new Size(402, 113);
             panelKonecnaCastka.TabIndex = 2;
             // 
-            // lblCelkovaKonecnaCastka
+            // lblKonecnaCastka
             // 
-            lblCelkovaKonecnaCastka.AutoSize = true;
-            lblCelkovaKonecnaCastka.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblCelkovaKonecnaCastka.ForeColor = Color.FromArgb(200, 240, 96);
-            lblCelkovaKonecnaCastka.Location = new Point(17, 61);
-            lblCelkovaKonecnaCastka.Name = "lblCelkovaKonecnaCastka";
-            lblCelkovaKonecnaCastka.RightToLeft = RightToLeft.No;
-            lblCelkovaKonecnaCastka.Size = new Size(38, 32);
-            lblCelkovaKonecnaCastka.TabIndex = 13;
-            lblCelkovaKonecnaCastka.Text = "—";
-            lblCelkovaKonecnaCastka.Click += label8_Click;
+            lblKonecnaCastka.AutoSize = true;
+            lblKonecnaCastka.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblKonecnaCastka.ForeColor = Color.FromArgb(200, 240, 96);
+            lblKonecnaCastka.Location = new Point(17, 61);
+            lblKonecnaCastka.Name = "lblKonecnaCastka";
+            lblKonecnaCastka.RightToLeft = RightToLeft.No;
+            lblKonecnaCastka.Size = new Size(38, 32);
+            lblKonecnaCastka.TabIndex = 13;
+            lblKonecnaCastka.Text = "—";
+            lblKonecnaCastka.Click += label8_Click;
             // 
             // label7
             // 
@@ -400,34 +405,35 @@
             dgvUspory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvUspory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUspory.Columns.AddRange(new DataGridViewColumn[] { Rok, Vlozeno, Úroky, Celkem });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(22, 22, 31);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.830189F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.Padding = new Padding(4);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(22, 22, 31);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvUspory.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 8.830189F);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.Padding = new Padding(4);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvUspory.DefaultCellStyle = dataGridViewCellStyle3;
             dgvUspory.EnableHeadersVisualStyles = false;
             dgvUspory.GridColor = Color.FromArgb(22, 22, 31);
-            dgvUspory.Location = new Point(211, 810);
+            dgvUspory.Location = new Point(211, 884);
             dgvUspory.Name = "dgvUspory";
             dgvUspory.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(64, 0, 0);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 8.830189F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvUspory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(64, 0, 0);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 8.830189F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvUspory.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvUspory.RowHeadersVisible = false;
             dgvUspory.RowHeadersWidth = 45;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(22, 22, 31);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 8.830189F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(22, 22, 31);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dgvUspory.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 8.830189F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dgvUspory.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dgvUspory.Size = new Size(813, 166);
             dgvUspory.TabIndex = 13;
             // 
@@ -445,6 +451,11 @@
             // 
             // Úroky
             // 
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(200, 240, 96);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(200, 240, 96);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(200, 240, 96);
+            Úroky.DefaultCellStyle = dataGridViewCellStyle2;
             Úroky.HeaderText = "Úroky (Kč)";
             Úroky.MinimumWidth = 6;
             Úroky.Name = "Úroky";
@@ -455,12 +466,41 @@
             Celkem.MinimumWidth = 6;
             Celkem.Name = "Celkem";
             // 
+            // btnNaUver
+            // 
+            btnNaUver.BackColor = Color.FromArgb(22, 22, 31);
+            btnNaUver.FlatStyle = FlatStyle.Flat;
+            btnNaUver.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnNaUver.ForeColor = Color.White;
+            btnNaUver.Location = new Point(372, 172);
+            btnNaUver.Name = "btnNaUver";
+            btnNaUver.Size = new Size(145, 58);
+            btnNaUver.TabIndex = 16;
+            btnNaUver.Text = "ÚVĚR";
+            btnNaUver.UseVisualStyleBackColor = false;
+            btnNaUver.Click += btnNaUver_Click;
+            // 
+            // btnNaUspory
+            // 
+            btnNaUspory.BackColor = Color.FromArgb(22, 22, 31);
+            btnNaUspory.FlatStyle = FlatStyle.Flat;
+            btnNaUspory.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnNaUspory.ForeColor = Color.FromArgb(200, 240, 96);
+            btnNaUspory.Location = new Point(211, 172);
+            btnNaUspory.Name = "btnNaUspory";
+            btnNaUspory.Size = new Size(145, 58);
+            btnNaUspory.TabIndex = 17;
+            btnNaUspory.Text = "ÚSPORY";
+            btnNaUspory.UseVisualStyleBackColor = false;
+            // 
             // Uspory
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(10, 10, 15);
             ClientSize = new Size(1343, 1100);
+            Controls.Add(btnNaUver);
+            Controls.Add(btnNaUspory);
             Controls.Add(dgvUspory);
             Controls.Add(Vysledky);
             Controls.Add(VstupniParametry);
@@ -470,7 +510,7 @@
             Text = "Form1";
             VstupniParametry.ResumeLayout(false);
             VstupniParametry.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudSavingsYears).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudDobaSporeni).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             Vysledky.ResumeLayout(false);
             Vysledky.PerformLayout();
@@ -493,21 +533,21 @@
         private Label label2;
         private PictureBox pictureBox1;
         private Label label3;
-        private TextBox txtInitialDeposit;
+        private TextBox txtPocatecniVklad;
         private Label label5;
-        private TextBox txtSavingsRate;
+        private TextBox txtRocniSazba;
         private Label label4;
-        private TextBox txtMonthlyDeposit;
-        private NumericUpDown nudSavingsYears;
+        private TextBox txtMesicniVklad;
+        private NumericUpDown nudDobaSporeni;
         private Button btnCalculateSavings;
         private Label label6;
-        private Button btnVymazat;
+        private Button btnVymazatUspory;
         private Panel Vysledky;
         private Label label11;
         private PictureBox pictureBox2;
         private Panel panelKonecnaCastka;
         private Label label7;
-        private Label lblCelkovaKonecnaCastka;
+        private Label lblKonecnaCastka;
         private Panel panelCelkemVlozeno;
         private Label lblCelkemVlozeno;
         private Label label9;
@@ -515,6 +555,8 @@
         private Label lblZiskZUroku;
         private Label label10;
         private DataGridView dgvUspory;
+        private Button btnNaUver;
+        private Button btnNaUspory;
         private DataGridViewTextBoxColumn Rok;
         private DataGridViewTextBoxColumn Vlozeno;
         private DataGridViewTextBoxColumn Úroky;

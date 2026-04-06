@@ -28,8 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             VstupniParametryUver = new Panel();
+            label4 = new Label();
+            rbLinearni = new RadioButton();
+            rbAnuitni = new RadioButton();
             btnVymazatUver = new Button();
             btnVypocitatUver = new Button();
             label6 = new Label();
@@ -40,10 +49,8 @@
             txtVyseUveru = new TextBox();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            rbAnuitni = new RadioButton();
-            rbLinearni = new RadioButton();
-            label4 = new Label();
             VysledkyUver = new Panel();
+            btnExportCsv = new Button();
             panelZiskZUroku = new Panel();
             lblCelkemNaUrocich = new Label();
             label10 = new Label();
@@ -55,6 +62,14 @@
             label7 = new Label();
             label11 = new Label();
             pictureBox2 = new PictureBox();
+            dgvKalendar = new DataGridView();
+            Mesic = new DataGridViewTextBoxColumn();
+            Zustatek = new DataGridViewTextBoxColumn();
+            Splatka = new DataGridViewTextBoxColumn();
+            Urok = new DataGridViewTextBoxColumn();
+            Jistina = new DataGridViewTextBoxColumn();
+            btnNaUspory = new Button();
+            btnNaUver = new Button();
             VstupniParametryUver.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudRokyUveru).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -63,6 +78,7 @@
             panelCelkemVlozeno.SuspendLayout();
             panelKonecnaCastka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvKalendar).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -70,7 +86,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(251, 64);
+            label1.Location = new Point(216, 59);
             label1.Name = "label1";
             label1.Size = new Size(384, 52);
             label1.TabIndex = 1;
@@ -92,10 +108,49 @@
             VstupniParametryUver.Controls.Add(txtVyseUveru);
             VstupniParametryUver.Controls.Add(label2);
             VstupniParametryUver.Controls.Add(pictureBox1);
-            VstupniParametryUver.Location = new Point(251, 142);
+            VstupniParametryUver.Location = new Point(216, 217);
             VstupniParametryUver.Name = "VstupniParametryUver";
             VstupniParametryUver.Size = new Size(345, 583);
             VstupniParametryUver.TabIndex = 2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(22, 396);
+            label4.Name = "label4";
+            label4.Size = new Size(100, 19);
+            label4.TabIndex = 14;
+            label4.Text = "TYP SPLACENÍ";
+            // 
+            // rbLinearni
+            // 
+            rbLinearni.AutoSize = true;
+            rbLinearni.Font = new Font("Segoe UI", 8.830189F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            rbLinearni.ForeColor = Color.White;
+            rbLinearni.Location = new Point(140, 427);
+            rbLinearni.Name = "rbLinearni";
+            rbLinearni.Padding = new Padding(8);
+            rbLinearni.Size = new Size(97, 37);
+            rbLinearni.TabIndex = 13;
+            rbLinearni.Text = "LINEÁRNÍ";
+            rbLinearni.UseVisualStyleBackColor = true;
+            // 
+            // rbAnuitni
+            // 
+            rbAnuitni.AutoSize = true;
+            rbAnuitni.Checked = true;
+            rbAnuitni.Font = new Font("Segoe UI", 8.830189F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            rbAnuitni.ForeColor = Color.White;
+            rbAnuitni.Location = new Point(25, 427);
+            rbAnuitni.Name = "rbAnuitni";
+            rbAnuitni.Padding = new Padding(8);
+            rbAnuitni.Size = new Size(92, 37);
+            rbAnuitni.TabIndex = 12;
+            rbAnuitni.TabStop = true;
+            rbAnuitni.Text = "ANUITNÍ";
+            rbAnuitni.UseVisualStyleBackColor = true;
             // 
             // btnVymazatUver
             // 
@@ -109,6 +164,7 @@
             btnVymazatUver.TabIndex = 11;
             btnVymazatUver.Text = "VYMAZAT";
             btnVymazatUver.UseVisualStyleBackColor = false;
+            btnVymazatUver.Click += btnVymazatUver_Click;
             // 
             // btnVypocitatUver
             // 
@@ -122,6 +178,7 @@
             btnVypocitatUver.TabIndex = 10;
             btnVypocitatUver.Text = "VYPOČÍTAT";
             btnVypocitatUver.UseVisualStyleBackColor = false;
+            btnVypocitatUver.Click += btnVypocitatUver_Click;
             // 
             // label6
             // 
@@ -213,60 +270,33 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // rbAnuitni
-            // 
-            rbAnuitni.AutoSize = true;
-            rbAnuitni.Checked = true;
-            rbAnuitni.Font = new Font("Segoe UI", 8.830189F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            rbAnuitni.ForeColor = Color.White;
-            rbAnuitni.Location = new Point(25, 427);
-            rbAnuitni.Name = "rbAnuitni";
-            rbAnuitni.Padding = new Padding(8);
-            rbAnuitni.Size = new Size(92, 37);
-            rbAnuitni.TabIndex = 12;
-            rbAnuitni.TabStop = true;
-            rbAnuitni.Text = "ANUITNÍ";
-            rbAnuitni.UseVisualStyleBackColor = true;
-            rbAnuitni.CheckedChanged += this.radioButton1_CheckedChanged;
-            // 
-            // rbLinearni
-            // 
-            rbLinearni.AutoSize = true;
-            rbLinearni.Font = new Font("Segoe UI", 8.830189F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            rbLinearni.ForeColor = Color.White;
-            rbLinearni.Location = new Point(140, 427);
-            rbLinearni.Name = "rbLinearni";
-            rbLinearni.Padding = new Padding(8);
-            rbLinearni.Size = new Size(97, 37);
-            rbLinearni.TabIndex = 13;
-            rbLinearni.Text = "LINEÁRNÍ";
-            rbLinearni.UseVisualStyleBackColor = true;
-            rbLinearni.CheckedChanged += radioButton2_CheckedChanged;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(22, 396);
-            label4.Name = "label4";
-            label4.Size = new Size(100, 19);
-            label4.TabIndex = 14;
-            label4.Text = "TYP SPLACENÍ";
-            label4.Click += this.label4_Click;
-            // 
             // VysledkyUver
             // 
             VysledkyUver.BackColor = Color.FromArgb(22, 22, 31);
+            VysledkyUver.Controls.Add(btnExportCsv);
             VysledkyUver.Controls.Add(panelZiskZUroku);
             VysledkyUver.Controls.Add(panelCelkemVlozeno);
             VysledkyUver.Controls.Add(panelKonecnaCastka);
             VysledkyUver.Controls.Add(label11);
             VysledkyUver.Controls.Add(pictureBox2);
-            VysledkyUver.Location = new Point(614, 142);
+            VysledkyUver.Location = new Point(579, 217);
             VysledkyUver.Name = "VysledkyUver";
             VysledkyUver.Size = new Size(467, 583);
             VysledkyUver.TabIndex = 15;
+            // 
+            // btnExportCsv
+            // 
+            btnExportCsv.BackColor = Color.FromArgb(22, 22, 31);
+            btnExportCsv.FlatStyle = FlatStyle.Flat;
+            btnExportCsv.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnExportCsv.ForeColor = Color.FromArgb(200, 240, 96);
+            btnExportCsv.Location = new Point(23, 357);
+            btnExportCsv.Name = "btnExportCsv";
+            btnExportCsv.Size = new Size(424, 58);
+            btnExportCsv.TabIndex = 17;
+            btnExportCsv.Text = "EXPORTOVAT DO SOUBORU CSV";
+            btnExportCsv.UseVisualStyleBackColor = false;
+            btnExportCsv.Click += btnExportCsv_Click;
             // 
             // panelZiskZUroku
             // 
@@ -391,12 +421,132 @@
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
+            // dgvKalendar
+            // 
+            dgvKalendar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKalendar.BackgroundColor = Color.FromArgb(22, 22, 31);
+            dgvKalendar.BorderStyle = BorderStyle.None;
+            dgvKalendar.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvKalendar.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.830189F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.Padding = new Padding(4);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Honeydew;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvKalendar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvKalendar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvKalendar.Columns.AddRange(new DataGridViewColumn[] { Mesic, Zustatek, Splatka, Urok, Jistina });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 8.830189F);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.Padding = new Padding(4);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvKalendar.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvKalendar.EnableHeadersVisualStyles = false;
+            dgvKalendar.GridColor = Color.FromArgb(22, 22, 31);
+            dgvKalendar.Location = new Point(216, 820);
+            dgvKalendar.Name = "dgvKalendar";
+            dgvKalendar.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(64, 0, 0);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 8.830189F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvKalendar.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dgvKalendar.RowHeadersVisible = false;
+            dgvKalendar.RowHeadersWidth = 45;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 8.830189F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dgvKalendar.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dgvKalendar.Size = new Size(830, 166);
+            dgvKalendar.TabIndex = 16;
+            // 
+            // Mesic
+            // 
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            Mesic.DefaultCellStyle = dataGridViewCellStyle2;
+            Mesic.HeaderText = "Měsíc";
+            Mesic.MinimumWidth = 6;
+            Mesic.Name = "Mesic";
+            // 
+            // Zustatek
+            // 
+            Zustatek.HeaderText = "Zůstatek (Kč)";
+            Zustatek.MinimumWidth = 6;
+            Zustatek.Name = "Zustatek";
+            // 
+            // Splatka
+            // 
+            Splatka.HeaderText = "Splátka (Kč)";
+            Splatka.MinimumWidth = 6;
+            Splatka.Name = "Splatka";
+            // 
+            // Urok
+            // 
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(200, 240, 96);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(22, 22, 31);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(200, 240, 96);
+            Urok.DefaultCellStyle = dataGridViewCellStyle3;
+            Urok.HeaderText = "Úrok (Kč)";
+            Urok.MinimumWidth = 6;
+            Urok.Name = "Urok";
+            // 
+            // Jistina
+            // 
+            Jistina.HeaderText = "Jistina (Kč)";
+            Jistina.MinimumWidth = 6;
+            Jistina.Name = "Jistina";
+            // 
+            // btnNaUspory
+            // 
+            btnNaUspory.BackColor = Color.FromArgb(22, 22, 31);
+            btnNaUspory.FlatStyle = FlatStyle.Flat;
+            btnNaUspory.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnNaUspory.ForeColor = Color.White;
+            btnNaUspory.Location = new Point(216, 143);
+            btnNaUspory.Name = "btnNaUspory";
+            btnNaUspory.Size = new Size(145, 58);
+            btnNaUspory.TabIndex = 15;
+            btnNaUspory.Text = "ÚSPORY";
+            btnNaUspory.UseVisualStyleBackColor = false;
+            btnNaUspory.Click += btnNaUspory_Click;
+            // 
+            // btnNaUver
+            // 
+            btnNaUver.BackColor = Color.FromArgb(22, 22, 31);
+            btnNaUver.FlatStyle = FlatStyle.Flat;
+            btnNaUver.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnNaUver.ForeColor = Color.FromArgb(200, 240, 96);
+            btnNaUver.Location = new Point(377, 143);
+            btnNaUver.Name = "btnNaUver";
+            btnNaUver.Size = new Size(145, 58);
+            btnNaUver.TabIndex = 15;
+            btnNaUver.Text = "ÚVĚR";
+            btnNaUver.UseVisualStyleBackColor = false;
+            // 
             // Uver
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(10, 10, 15);
-            ClientSize = new Size(1386, 815);
+            ClientSize = new Size(1386, 1059);
+            Controls.Add(btnNaUver);
+            Controls.Add(btnNaUspory);
+            Controls.Add(dgvKalendar);
             Controls.Add(VysledkyUver);
             Controls.Add(VstupniParametryUver);
             Controls.Add(label1);
@@ -415,6 +565,7 @@
             panelKonecnaCastka.ResumeLayout(false);
             panelKonecnaCastka.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvKalendar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -448,5 +599,14 @@
         private Label label7;
         private Label label11;
         private PictureBox pictureBox2;
+        private DataGridView dgvKalendar;
+        private Button btnNaUver;
+        private Button btnNaUspory;
+        private Button btnExportCsv;
+        private DataGridViewTextBoxColumn Mesic;
+        private DataGridViewTextBoxColumn Zustatek;
+        private DataGridViewTextBoxColumn Splatka;
+        private DataGridViewTextBoxColumn Urok;
+        private DataGridViewTextBoxColumn Jistina;
     }
 }
